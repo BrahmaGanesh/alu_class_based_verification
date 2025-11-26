@@ -37,8 +37,8 @@ module alu_controller #(
     end
     assign zero 		= (y==0);
     assign carry 		= temp[WIDTH];
-    assign overflow 	= ((opcode == 3'b000 || opcode == 3'b001) && 
-                          (operand_a[WIDTH-1] == operand_b[WIDTH-1]) &&
-                          (y[WIDTH-1] != operand_a[WIDTH-1]));
-  
+    assign overflow = ((opcode == 3'b000 || opcode == 3'b001) &&
+                      ((opcode==3'b000 && operand_a[WIDTH-1] == operand_b[WIDTH-1] && y[WIDTH-1] != operand_a[WIDTH-1]) ||
+                      (opcode==3'b001 && operand_a[WIDTH-1] != operand_b[WIDTH-1] && y[WIDTH-1] != operand_a[WIDTH-1])));
+
 endmodule 
