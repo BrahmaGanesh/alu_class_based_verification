@@ -18,8 +18,8 @@ interface alu_interface #(
     input  y, carry, zero, overflow;
   endclocking
 
-  modport master  (clocking cb);
-  modport monitor (input operand_a, operand_b, opcode,
+  modport master  (clocking cb,input clk);
+  modport monitor (input clk,operand_a, operand_b, opcode,
                    input y, carry, zero, overflow);
   modport slave (input operand_a,operand_b,opcode, output carry,zero,overflow,y);
   

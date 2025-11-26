@@ -18,7 +18,7 @@ class driver;
             
             tr.display("DRV");
             
-          @(posedge vif.cb);
+          @(posedge vif.clk);
         end
     endtask
 endclass
