@@ -12,7 +12,7 @@ class monitor;
         forever begin
             tr=new();
             @(posedge vif.clk);
-            
+            #5;
             tr.operand_a 	= vif.operand_a;
             tr.operand_b 	= vif.operand_b;
             tr.opcode 	    = vif.opcode;
@@ -22,6 +22,7 @@ class monitor;
             tr.overflow	    = vif.overflow;
             
             tr.display("MON");
+            mbxms.put(tr);
         end
     endtask
 endclass
