@@ -1,4 +1,4 @@
-module #(
+module alu_controller #(
     parameter WIDTH=8,
     parameter DEPTH=3
     )(
