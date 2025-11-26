@@ -6,13 +6,12 @@ class generator;
         this.mbxgd = mbxgd;
     endfunction
     
-    task run();
+    virtual task run();
         repeat(10)begin
             tr = new();
             tr.randomize();
             mbxgd.put(tr);
             tr.display("GEN");
-            #1;
         end
     endtask
 endclass
